@@ -241,6 +241,61 @@ function focarPesquisaCliente(){
     document.getElementById("valor_pesquisa_cliente").focus();
 }
 
+function buscarCEP(tipo){
+
+    let cep = document.getElementById(tipo + "_cep").value;
+
+    // remove máscara
+    cep = cep.replace(/\D/g,'');
+
+    if(cep.length != 8){
+        return;
+    }
+
+    fetch("https://viacep.com.br/ws/" + cep + "/json/")
+
+    .then(response => response.json())
+
+    .then(dados => {
+
+        if(dados.erro){
+
+            alert("CEP NÃO ENCONTRADO!");
+
+            return;
+        }
+
+        document.getElementById(tipo + "_cidade").value =
+        dados.localidade;
+
+        document.getElementById(tipo + "_estado").value =
+        dados.uf;
+
+        document.getElementById(tipo + "_endereco").value =
+        dados.logradouro;
+
+    })
+
+    .catch(function(){
+
+        alert("ERRO AO CONSULTAR CEP!");
+    });
+}
+
+function limparModalIncluir(){
+
+    document.getElementById("i_cep").value = "";
+    document.getElementById("i_endereco").value = "";
+    document.getElementById("i_cidade").value = "";
+    document.getElementById("i_estado").value = "";
+
+    document.querySelector("#modalIncluir input[name='nome']").value = "";
+    document.querySelector("#modalIncluir input[name='cpf']").value = "";
+    document.querySelector("#modalIncluir input[name='telefone1']").value = "";
+    document.querySelector("#modalIncluir input[name='telefone2']").value = "";
+    document.querySelector("#modalIncluir input[name='email']").value = "";
+}
+
 </script>
    
 </head>
@@ -345,24 +400,21 @@ while($row = mysqli_fetch_assoc($result)){
                     CPF/CNPJ
                     <input type="text" name="cpf" id="cpf" onkeyup="formatarCpfCnpj(this)">
                 </div>
-                <div class="form-grupo">
-                    Endereço
-                    <input type="text" name="endereco">
+                <div class="form-grupo"> Endereço
+                    <input type="text" id="i_endereco" name="endereco">
                 </div>
             </div>
 
             <div class="form-linha">            
-                <div class="form-grupo">
-                    Cidade
-                    <input type="text" name="cidade">
+                <div class="form-grupo"> Cidade
+                    <input type="text" id="i_cidade" name="cidade">
                 </div>
-                <div class="form-grupo">
-                    Estado
-                    <input type="text" name="estado">
+                <div class="form-grupo"> Estado
+                    <input type="text" id="i_estado" name="estado">
                 </div>
                 <div class="form-grupo">
                     CEP
-                    <input type="text" name="cep" onkeyup="formatarCEP(this)">
+                    <input type="text" id="i_cep" name="cep" onkeyup="formatarCEP(this)" onblur="buscarCEP('i')">
                 </div> 
             </div>
 
@@ -383,7 +435,7 @@ while($row = mysqli_fetch_assoc($result)){
 
             <div class="botoes-modal">
                 <button type="submit" class="salvar" name="salvar">SALVAR</button>
-                <button type="button" class="cancelar" onclick="fecharModal('modalIncluir')">CANCELAR</button>
+                <button type="button" class="cancelar" onclick="limparModalIncluir(); fecharModal('modalIncluir')"> CANCELAR</button>                
             </div>
 
         </form>
@@ -555,7 +607,7 @@ while($row = mysqli_fetch_assoc($result)){
 
                 <div class="form-grupo">
                     CEP
-                    <input type="text" id="e_cep" name="cep" onkeyup="formatarCEP(this)">
+                    <input type="text" id="e_cep" name="cep" onkeyup="formatarCEP(this)" onblur="buscarCEP('e')">
                 </div>
             </div>
 
