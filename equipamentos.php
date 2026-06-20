@@ -3,7 +3,6 @@ include("verifica_login.php");
 include("conexao.php"); 
 
 if(isset($_GET['erro'])){
-
     echo "
     <script>
         alert('EQUIPAMENTO NÃO PODE SER EXCLUÍDO POIS POSSUI LOCAÇÕES!');
@@ -14,8 +13,8 @@ if(isset($_GET['erro'])){
 ?>
 
 <?php
-$proximo_id = 1;
 
+$proximo_id = 1;
 $result_id = mysqli_query($conexao, "SELECT MAX(id_equipamento) as max_id FROM equipamentos");
 $row_id = mysqli_fetch_assoc($result_id);
 
@@ -28,9 +27,7 @@ $campo = isset($_GET['campo']) ? $_GET['campo'] : '';
 $valor = isset($_GET['valor']) ? trim($_GET['valor']) : '';
 
 if($valor != "" && ($campo == "descricao" || $campo == "categoria")){
-    
     $valor = mysqli_real_escape_string($conexao, $valor);
-
     $sql = "SELECT * FROM equipamentos 
             WHERE $campo LIKE '%$valor%'";
 } else {
@@ -135,7 +132,6 @@ function excluir(){
 
     let linha = document.querySelector("tr.selecionado");
     let descricao = linha.children[2].innerText;
-
     let idFormatado = String(idSelecionado).padStart(6, '0');
 
     if(confirm(
@@ -149,7 +145,6 @@ function excluir(){
 
 function abrirModal(id){
     document.getElementById(id).style.display = "block";
-
     // se for modal de inclusão de equipamento
     if(id === "modalIncluirEquipamento"){
 
@@ -158,7 +153,6 @@ function abrirModal(id){
         let dia = String(hoje.getDate()).padStart(2, '0');
         let mes = String(hoje.getMonth()+1).padStart(2, '0');
         let ano = hoje.getFullYear();
-
         document.getElementById("i_data").value = dia + "/" + mes + "/" + ano;
     }
 }
@@ -168,7 +162,6 @@ function abrirModal(id){
 
 window.onload = function(){
     let primeira = document.querySelector("#tabelaEquipamentos tr:nth-child(2)");
-
     if(primeira){
         selecionarLinha(primeira, primeira.getAttribute("onclick").match(/\d+/)[0]);
     }
@@ -182,7 +175,6 @@ function abrirEditar(){
     }
 
     let linha = document.querySelector("tr.selecionado");
-
     document.getElementById("e_id").value = linha.children[0].innerText;
     document.getElementById("e_data").value = linha.children[1].innerText;
     document.getElementById("e_descricao").value = linha.children[2].innerText;
@@ -306,9 +298,7 @@ while($row = mysqli_fetch_assoc($result)){
         <h3>PESQUISAR</h3>
 
         <form method="get">
-
             <div class="form-linha">
-
                 <div class="form-grupo">
                     <label>CRITÉRIO</label>
                     <select name="campo" class="input-padrao" onchange="focarPesquisaEquipamento()">
@@ -317,12 +307,10 @@ while($row = mysqli_fetch_assoc($result)){
                         <option value="categoria">Categoria</option>
                     </select>
                 </div>
-
                 <div class="form-grupo">
                     <label>PESQUISA</label>
                     <input type="text" name="valor" id="valor_pesquisa" class="input-padrao">
                 </div>
-
             </div>
 
             <div class="botoes-modal">
@@ -339,17 +327,13 @@ while($row = mysqli_fetch_assoc($result)){
 <div class="modal" id="modalEditar">
     <div class="modal-content">
         <h3>EDITAR EQUIPAMENTO</h3>
-
         <form method="post">
-
             <input type="hidden" name="id_editar" id="id_editar">
-
             <div class="form-linha">
                 <div class="form-grupo">
                     <label>ID</label>
                     <input type="text" id="e_id" readonly>
                 </div>
-
                 <div class="form-grupo">
                     <label>Data</label>
                     <input type="text" id="e_data" readonly>

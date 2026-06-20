@@ -48,24 +48,20 @@ input {width: 90%;padding: 8px;margin: 8px 0;}
             <h2>LOCAÇÃO DE EQUIPAMENTOS DE INFORMÁTICA</h2>
         </div>
     </div>
-
     <button type="button" onclick="window.location.href='clientes.php'">CLIENTES</button>
     <button type="button" onclick="window.location.href='equipamentos.php'">EQUIPAMENTOS</button>
     <button type="button" onclick="window.location.href='locacao.php'">LOCAÇÃO</button>
-    
     <button type="button"<?php if($nivel == 'ADM'){ ?>onclick="window.location.href='relatorios.php'"<?php } else { ?>disabled<?php } ?>>RELATÓRIOS</button>
-    
-    
     <button type="button"<?php if($nivel == 'ADM'){ ?>onclick="window.location.href='resultados.php'"<?php } else { ?>disabled<?php } ?>>RESULTADOS</button>
-
-
-
     <button type="button" onclick="window.location.href='login.php?logout=1'">SAIR</button>
 
 </div>
 
 <footer class="rodape">
-    PROGRAMA LOCAÇÃO DE EQUIPAMENTOS  - Versão: 1.00 - © 2026 - Desenvolvido por Jorge E. L. Machado
+    PROGRAMA LOCAÇÃO DE EQUIPAMENTOS  - Versão: 1.1.0 - © 2026 - Desenvolvido por Jorge E. L. Machado
+   
+    | 
+    <a href="sobre.php" style="color:#ffffff; font-weight:bold;"> SOBRE O SISTEMA </a>
 </footer>
 
 </body>

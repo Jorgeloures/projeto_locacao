@@ -12,9 +12,7 @@ $ano_mes = $_GET['ano_mes'] ?? null;
 $dados = [];
 
 if($status && $tipo){
-
     $where = "WHERE 1=1";
-
     if($status == "fechado"){
     $where .= " AND l.status = 'FECHADO'";
     }
@@ -184,9 +182,7 @@ body { font-family: "Segoe UI"; margin: 0; background: url('fundo1.png');}
 h2 {color: white;}
 
 .botoes {display: flex; gap: 15px; margin-bottom: 20px;}
-
 .botoes button {padding: 10px 20px;border: none;cursor: pointer;background: #3498db;color: white;    border-radius: 5px;}
-
 button:active {transform: scale(0.95);box-shadow: inset 0px 3px 8px rgba(0,0,0,0.4);}
 
 .linha-radios {display: flex;align-items: center;gap: 40px;background: white;padding: 8px;border-radius: 10px;
@@ -207,7 +203,6 @@ border: 1px solid black;font-size: 13px;}
 <script>
 function alterarTipo(){
     let tipo = document.querySelector('input[name="tipo"]:checked').value;
-
     document.getElementById("ano").disabled = true;
     document.getElementById("ano_mes").disabled = true;
 

@@ -355,17 +355,11 @@ function fecharModalFoco(modalId){
     document.getElementById(modalId).style.display = "none";
 
     setTimeout(function(){
-
         if(typeof idSelecionado === "undefined" || idSelecionado === null) return;
-
         let linhas = document.querySelectorAll("#tabelaLocacoes tr");
-
         for(let i = 1; i < linhas.length; i++){ // ignora header
-
             let idLinha = linhas[i].cells[0]?.innerText.trim();
-
             if(idLinha == idSelecionado){
-
                 linhas[i].scrollIntoView({
                     behavior: "auto",
                     block: "center"
@@ -466,9 +460,7 @@ function atualizarTabelaItens(){
 
         // 🔴 cálculo usando variável global
         let valorTotalItem = item.quantidade * item.valor_unitario * qtdDiasLocacao;
-
         let tr = document.createElement("tr");
-
         tr.innerHTML = `
             <td>${item.descricao}</td>
             <td>${item.quantidade}</td>
@@ -618,7 +610,6 @@ function salvarLocacao(){
         alert("ADICIONE ITENS DE LOCAÇÃO!");
         return;
     }
-
     let form = document.getElementById("formLocacao");
 
 // remove inputs antigos
@@ -652,10 +643,8 @@ function salvarLocacao(){
 }
 
 function calcularDias(){
-
     let dataLoc = document.getElementById("data_locacao").value;
     let dataDev = document.querySelector("input[name='data_devolucao']").value;
-
     if(!dataLoc || !dataDev) return;
 
 // converte dd/mm/yyyy → yyyy-mm-dd
@@ -738,16 +727,13 @@ function abrirDevolucao(){
 
 function controlarEntrega(){
     let tipo = document.getElementById("entrega").value;
-
     if(tipo === "EFETIVA"){
         document.getElementById("multa").value = 0;
         document.getElementById("antecipacao").value = 0;
     }
-
     if(tipo === "MULTA"){
         document.getElementById("antecipacao").value = 0;
     }
-
     if(tipo === "ANTECIPADA"){
         document.getElementById("multa").value = 0;
     }
@@ -895,16 +881,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // formatar campos desconto e encargos
 function formatarCampo(campo){
-
         campo.addEventListener("blur", function(){
-
             let valor = campo.value.replace(",", ".");
             valor = parseFloat(valor);
 
             if(isNaN(valor) || valor < 0){
                 valor = 0;
             }
-
             campo.value = valor.toFixed(2).replace(".", ",");
         });
     }
@@ -919,7 +902,6 @@ function formatarCampo(campo){
 
 function alterarCampoPesquisa(){
     let tipo = document.getElementById("tipo_pesquisa").value;
-
     let campoTexto = document.getElementById("campo_texto");
     let campoData = document.getElementById("campo_data");
 
@@ -982,12 +964,10 @@ function finalizarDevolucao(){
 
 function visualizarDevolucao(){
     let linha = document.querySelector("tr.selecionado");
-
     if(!linha){
         alert("SELECIONE UMA LOCAÇÃO!");
         return;
     }
-
     let status = linha.cells[5].innerText.trim(); // ajuste conforme sua coluna
 
     // INFORMA SE A LOCAÇÃO NÃO ESTIVER FECHADA
@@ -995,7 +975,6 @@ function visualizarDevolucao(){
         alert("ESTA LOCAÇÃO NÃO ESTÁ FECHADA!");
         return;
     }
-
     let id = linha.cells[0].innerText;
 
     // 🔷 REDIRECIONA (igual devolução)
@@ -1049,13 +1028,10 @@ window.addEventListener("load", function(){
 
         if(id){
             let linhas = document.querySelectorAll("table tr");
-
             linhas.forEach(function(linha, index){
-
                 if(index === 0) return; // ignora header
 
-                let idLinha = linha.cells[0]?.innerText.trim();
-
+            let idLinha = linha.cells[0]?.innerText.trim();
                 if(idLinha === id){
 
                     // limpa seleção anterior
@@ -1083,14 +1059,12 @@ function alterarCampoPesquisa(){
     let data = document.getElementById("campo_data");
 
     if(tipo == "cliente"){
-
         texto.style.display = "block";
         data.style.display = "none";
 
         texto.value = "";
     }
     else{
-
         texto.style.display = "none";
         data.style.display = "block";
 
@@ -1101,19 +1075,14 @@ function alterarCampoPesquisa(){
 function pesquisarLocacao(){
     let tipo = document.getElementById("tipo_pesquisa").value;
     let valor = "";
-
     if(tipo == "cliente"){
-
         valor = document.getElementById("campo_texto").value;
     }
     else{
-
         valor = document.getElementById("campo_data").value;
     }
     if(valor == ""){
-
         alert("PREENCHA O CAMPO!");
-
         return;
     }
 
@@ -1124,15 +1093,12 @@ function pesquisarLocacao(){
 
 function focarCampoPesquisa(){
     let tipo = document.getElementById("tipo_pesquisa").value;
-
     if(tipo == "cliente"){
-
         document.getElementById("campo_texto").focus();
     }
 
     // DATAS
     else{
-
         document.getElementById("campo_data").focus();
     }
 }

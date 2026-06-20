@@ -113,34 +113,24 @@ body { font-family: "Segoe UI"; margin: 0; background: url('fundo1.png'); }
 h2 { color: white;}
 
 .botoes {display: flex;gap: 20px;margin-bottom: 20px;}
-
 .botoes button {padding: 10px 20px;border: none;cursor: pointer;background: #3498db;color: white;    border-radius: 5px;}
-
 button:active {transform: scale(0.95);box-shadow: inset 0px 3px 8px rgba(0,0,0,0.4);}
 
 .linha-radios {display: flex;align-items: center;gap: 20px;background: white;padding: 10px;border-radius: 10px;
     border: 1px solid black;font-size: 13px;margin-bottom: 15px;flex-wrap: wrap;}
-
 .linha-radios + .linha-radios {margin-top: 10px;}
-
 .input-padrao {height: 40px;padding: 0 12px;border-radius: 6px;border: 1px solid #ccc;font-size: 13px;    min-width: 140px;}
 
 #nome_cliente {min-width: 250px;}
 
 .table-container {width: 100%;min-height: 495px;max-height: 495px;margin: 1px auto;background: white;    border-radius: 10px;overflow-y: auto;}
-
-/* TABELA */
 .table-container table {width: 100%;border-collapse: collapse;table-layout: fixed;}
-
 .table-container th {background: white;padding: 10px;border: 1px solid #ccc;text-align: center !important;
     font-size: 13px;position: sticky;top: 0;z-index: 2;}
-
 .table-container td {padding: 6px 7px;border: 1px solid #ccc;text-align: right;font-size: 12px;}
-
 .table-container th:first-child,.table-container td:first-child {width: 150px;text-align: center;}
 .table-container th:not(:first-child),.table-container td:not(:first-child) {width: calc((100% - 150px) / 10);
 }
-
 .table-container th:nth-child(1),.table-container td:nth-child(1) {width: 60px;text-align: center;}
 .table-container th:nth-child(2),.table-container td:nth-child(2) {width: 260px;text-align: left;}
 /* 3 - EQUIPAMENTO */
@@ -307,12 +297,9 @@ while($row = mysqli_fetch_assoc($resultado)) {
 <td><?= $linha['nome_cliente'] ?></td>
 <td><?= $linha['nome_equipamento'] ?></td>
 <td><?= $linha['categoria'] ?></td>
-
 <td><?= $linha['qtd_dias'] ?></td>
 <td><?= $linha['quantidade'] ?></td>
-
 <td><?= number_format($linha['valor_unitario'],2,',','.') ?></td>
-
 <td>
 <?= number_format(
     $linha['qtd_dias'] *
@@ -331,15 +318,12 @@ while($row = mysqli_fetch_assoc($resultado)) {
 
 <td></td><td></td><td></td><td></td><td></td>
 <?php } ?>
-
 <td><?= date('d/m/Y', strtotime($linha['data_locacao'])) ?></td>
-
 <td>
 <?= $linha['data_dev_real'] 
 ? date('d/m/Y', strtotime($linha['data_dev_real'])) 
 : '' ?>
 </td>
-
 <td><?= $linha['status'] ?></td>
 
 </tr>
@@ -380,12 +364,9 @@ if(count($linhas) > 0){
 <td><?= $linha['nome_cliente'] ?></td>
 <td><?= $linha['nome_equipamento'] ?></td>
 <td><?= $linha['categoria'] ?></td>
-
 <td><?= $linha['qtd_dias'] ?></td>
 <td><?= $linha['quantidade'] ?></td>
-
 <td><?= number_format($linha['valor_unitario'],2,',','.') ?></td>
-
 <td>
 <?= number_format(
     $linha['qtd_dias'] *
@@ -401,12 +382,9 @@ if(count($linhas) > 0){
 <td><?= number_format($linha['ajuste_encargos'],2,',','.') ?></td>
 <td><?= number_format($valor_final,2,',','.') ?></td>
 <?php } else { ?>
-
 <td></td><td></td><td></td><td></td><td></td>
 <?php } ?>
-
 <td><?= date('d/m/Y', strtotime($linha['data_locacao'])) ?></td>
-
 <td>
 <?= $linha['data_dev_real'] 
 ? date('d/m/Y', strtotime($linha['data_dev_real'])) 
