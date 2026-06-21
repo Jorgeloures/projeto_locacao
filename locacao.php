@@ -139,7 +139,7 @@ body{font-family:"Segoe UI";margin:0;background: url('fundo1.png');}
 .container{width:100%;padding:15px;box-sizing:border-box;}
 h2{color:white;}
 
-.botoes{margin-bottom:15px;}
+.botoes {margin-bottom: 15px; display: flex; align-items: center;}
 .botoes button{padding:10px 20px;margin-right:10px;border:none;cursor:pointer;background:#3498db;color:white;border-radius:5px;}
 button:active{transform:scale(0.95);box-shadow:inset 0px 3px 8px rgba(0,0,0,0.4);}
 
@@ -177,6 +177,7 @@ input[readonly]{background:#ecf0f1;cursor:not-allowed;}
 
 /* BOTÕES MODAL */
 .botoes-modal{margin-top:20px;display:flex;justify-content:space-between;}
+.botao-voltar{margin-left: auto; width: 150px !important;}
 .salvar{background:#3498db;color:white;border:none;padding:10px;width:45%;border-radius:10px;font-weight:bold;}
 .salvar:hover{background:#2c80b4;}
 .cancelar{background:#bdc3c7;color:black;border:none;padding:10px;width:45%;border-radius:10px;font-weight:bold;}
@@ -315,7 +316,7 @@ input[readonly]{background:#ecf0f1;cursor:not-allowed;}
 #modalVisualizarDevolucao .botoes-modal {display: flex;justify-content: center;}
 #modalVisualizarDevolucao #data_prevista {background: #ecf0f1;text-align: center;}
 
-#btnCancelarDev {margin-left: auto;background: #e74c3c !important;color: white;font-weight: bold;}
+#btnCancelarDev {background: #e74c3c !important;color: white;font-weight: bold;}
 .botoes {display: flex;gap: 10px;}
 
 </style>
@@ -1116,8 +1117,9 @@ function focarCampoPesquisa(){
     <button onclick="abrirDevolucao()">DEVOLUÇÃO</button>
     <button onclick="visualizarDevolucao()">DADOS DEVOLUÇÃO</button>
     <button onclick="abrirModal('modalPesquisa')">PESQUISA</button>
-    <button onclick="window.location.href='principal.php'">VOLTAR</button>
+    
     <button id="btnCancelarDev" class="cancelar-dev" onclick="cancelarDevolucao()" data-nivel="<?php echo $_SESSION['nivel']; ?>"> CANCELAR DEVOLUÇÃO </button>
+    <button class="botao-voltar" onclick="window.location.href='principal.php'">VOLTAR</button>
 </div>
 
 <div class="table-container">

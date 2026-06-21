@@ -184,6 +184,7 @@ h2 {color: white;}
 .botoes {display: flex; gap: 15px; margin-bottom: 20px;}
 .botoes button {padding: 10px 20px;border: none;cursor: pointer;background: #3498db;color: white;    border-radius: 5px;}
 button:active {transform: scale(0.95);box-shadow: inset 0px 3px 8px rgba(0,0,0,0.4);}
+.botao-voltar{margin-left: auto; width: 150px !important;}
 
 .linha-radios {display: flex;align-items: center;gap: 40px;background: white;padding: 8px;border-radius: 10px;
 border: 1px solid black;font-size: 13px;}
@@ -241,7 +242,7 @@ function gerarResultado(){
 
 <div class="botoes">
     <button onclick="gerarResultado()">GERAR RESULTADO</button>
-    <button onclick="window.location.href='principal.php'">VOLTAR</button>
+    <button class="botao-voltar" onclick="window.location.href='principal.php'">VOLTAR</button>
 </div>
 
 <!-- STATUS -->

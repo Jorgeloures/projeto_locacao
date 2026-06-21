@@ -26,7 +26,7 @@ body { font-family: "Segoe UI"; margin: 0; background: url('fundo1.png');; }
 h2 { color: white; }
 
 /* BOTÕES */
-.botoes { margin-bottom: 15px; }
+.botoes {margin-bottom: 15px; display: flex; align-items: center;}
 .botoes button { padding: 10px 20px; margin-right: 20px; border: none; cursor: pointer; background: #3498db; color: white; border-radius: 5px; }
 
 /* TABELA */
@@ -70,6 +70,7 @@ button:active { transform: scale(0.95); box-shadow: inset 0px 3px 8px rgba(0,0,0
 /* BOTÕES MODAL */
 .botoes-modal { margin-top: 20px; display: flex; justify-content: space-between; }
 .botoes-modal button { width: 48%; padding: 10px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; }
+.botao-voltar{margin-left: auto; width: 150px !important;}
 
 /* SALVAR */
 .salvar { background: #3498db; color: white; }
@@ -282,7 +283,7 @@ function limparModalIncluir(){
         <button onclick="abrirModal('modalPesquisar')">PESQUISAR</button>
         <button onclick="window.location.href='clientes.php'">LIMPAR PESQUISA</button>
         <button onclick="abrirVisualizar()">VISUALIZAR</button>
-        <button onclick="window.location.href='principal.php'">VOLTAR</button>
+        <button class="botao-voltar" onclick="window.location.href='principal.php'">VOLTAR</button>
     </div>
 
     <!-- TABELA -->

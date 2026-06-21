@@ -115,6 +115,7 @@ h2 { color: white;}
 .botoes {display: flex;gap: 20px;margin-bottom: 20px;}
 .botoes button {padding: 10px 20px;border: none;cursor: pointer;background: #3498db;color: white;    border-radius: 5px;}
 button:active {transform: scale(0.95);box-shadow: inset 0px 3px 8px rgba(0,0,0,0.4);}
+.botao-voltar{margin-left: auto; width: 150px !important;}
 
 .linha-radios {display: flex;align-items: center;gap: 20px;background: white;padding: 10px;border-radius: 10px;
     border: 1px solid black;font-size: 13px;margin-bottom: 15px;flex-wrap: wrap;}
@@ -232,7 +233,7 @@ function controlarCampos() {
 <div class="botoes">
 <button type="submit">PESQUISAR</button>
 <button type="button" onclick="window.location.href='relatorios.php'">LIMPAR PESQUISA</button>
-<button type="button" onclick="window.location.href='principal.php'">VOLTAR</button>
+<button class="botao-voltar" type="button" onclick="window.location.href='principal.php'">VOLTAR</button>
 </div>
 
 </form>
